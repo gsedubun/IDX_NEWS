@@ -4,9 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IDX_NEWS.Core
+namespace IDX_NEWS.Core.ViewModels
 {
-    public class Class1
-    {
-    }
+   
 }

@@ -1,44 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-
 using System.Globalization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-// To parse this JSON data, add NuGet 'Newtonsoft.Json' then do:
-//
-//    using IDX_NEWS.Core.ViewModels;
-//
-//    var newsAnnouncement = NewsAnnouncement.FromJson(jsonString);
 
 namespace IDX_NEWS.Core.ViewModels
 {
-
-    /// <summary>
-    /// http://www.idx.co.id/umbraco/Surface/NewsAnnouncement/GetNewsSearch?pageSize=10
-    /// </summary>
-
-    public partial class NewsAnnouncement
-    {
-        [JsonProperty("Items")]
-        public Item[] Items { get; set; }
-
-        [JsonProperty("ItemCount")]
-        public long ItemCount { get; set; }
-
-        [JsonProperty("PageSize")]
-        public long PageSize { get; set; }
-
-        [JsonProperty("Links")]
-        public Link[] Links { get; set; }
-
-        [JsonProperty("PageNumber")]
-        public long PageNumber { get; set; }
-
-        [JsonProperty("PageCount")]
-        public long PageCount { get; set; }
-    }
-
-    public partial class Item
+    public  class Item
     {
         [JsonProperty("Id")]
         public long Id { get; set; }
@@ -77,33 +45,21 @@ namespace IDX_NEWS.Core.ViewModels
         public Link[] Links { get; set; }
     }
 
-    public partial class Link
-    {
-        [JsonProperty("Rel")]
-        public string Rel { get; set; }
-
-        [JsonProperty("Href")]
-        public string Href { get; set; }
-
-        [JsonProperty("Method")]
-        public Method Method { get; set; }
-    }
-
     public enum Method { Get };
 
     public enum Locale { EnUs, IdId };
 
-    public partial class NewsAnnouncement
+    //public class NewsAnnouncement
+    //{
+    //    public static NewsAnnouncement FromJson(string json) => JsonConvert.DeserializeObject<NewsAnnouncement>(json, IDX_NEWS.Core.ViewModels.Converter.Settings);
+    //}
+
+    public static class NewsAnnouncementSerialize
     {
-        public static NewsAnnouncement FromJson(string json) => JsonConvert.DeserializeObject<NewsAnnouncement>(json, IDX_NEWS.Core.ViewModels.Converter.Settings);
+        public static string ToJson(this NewsAnnouncement self) => JsonConvert.SerializeObject(self, IDX_NEWS.Core.ViewModels.NewsAnnouncementConverter.Settings);
     }
 
-    public static class Serialize
-    {
-        public static string ToJson(this NewsAnnouncement self) => JsonConvert.SerializeObject(self, IDX_NEWS.Core.ViewModels.Converter.Settings);
-    }
-
-    internal static class Converter
+    internal static class NewsAnnouncementConverter
     {
         public static readonly JsonSerializerSettings Settings = new JsonSerializerSettings
         {

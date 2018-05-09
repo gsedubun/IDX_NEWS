@@ -47,13 +47,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModels\NewAnnouncement.cs" />
+    <Compile Include="Services\EventCalendarService.cs" />
+    <Compile Include="Services\NewsService.cs" />
+    <Compile Include="ViewModels\EventCalendar.cs" />
+    <Compile Include="ViewModels\Item.cs" />
+    <Compile Include="ViewModels\Link.cs" />
+    <Compile Include="ViewModels\NewsAnnouncement.cs" />
+    <Compile Include="ViewModels\RootObject.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Repositories\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
