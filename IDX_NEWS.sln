@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27428.2043
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IDX_NEWS", "IDX_NEWS\IDX_NEWS.csproj", "{7A0A73EE-192C-4EF5-82BF-5427DE86E091}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IDX_NEWS.Core", "IDX_NEWS.Core\IDX_NEWS.Core.csproj", "{BBF9C851-AC32-4093-A231-0C0B439C51B0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{7A0A73EE-192C-4EF5-82BF-5427DE86E091}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7A0A73EE-192C-4EF5-82BF-5427DE86E091}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7A0A73EE-192C-4EF5-82BF-5427DE86E091}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBF9C851-AC32-4093-A231-0C0B439C51B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBF9C851-AC32-4093-A231-0C0B439C51B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBF9C851-AC32-4093-A231-0C0B439C51B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBF9C851-AC32-4093-A231-0C0B439C51B0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
