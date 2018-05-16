@@ -1,4 +1,6 @@
-﻿using Prism.Mvvm;
+﻿using IDX_NEWS.NewsModule.Views;
+using Prism.Mvvm;
+using Prism.Regions;
 
 namespace IDX_NEWS.WPF.ViewModels
 {
@@ -11,9 +13,10 @@ namespace IDX_NEWS.WPF.ViewModels
             set { SetProperty(ref _title, value); }
         }
 
-        public MainWindowViewModel()
+        public MainWindowViewModel(IRegionManager regionManager)
         {
-
+            regionManager.RegisterViewWithRegion("ContentRegion", typeof(ViewA));
         }
+
     }
 }

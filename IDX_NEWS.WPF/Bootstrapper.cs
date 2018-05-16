@@ -3,6 +3,7 @@ using System.Windows;
 using Prism.Modularity;
 using Microsoft.Practices.Unity;
 using Prism.Unity;
+using IDX_NEWS.NewsModule;
 
 namespace IDX_NEWS.WPF
 {
@@ -22,6 +23,7 @@ namespace IDX_NEWS.WPF
         {
             var moduleCatalog = (ModuleCatalog)ModuleCatalog;
             //moduleCatalog.AddModule(typeof(YOUR_MODULE));
+            moduleCatalog.AddModule(typeof(NewsModuleModule));
         }
     }
 }

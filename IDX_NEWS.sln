@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IDX_NEWS.WPF", "IDX_NEWS.WP
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IDX_NEWS.CoreTests", "IDX_NEWS.CoreTests\IDX_NEWS.CoreTests.csproj", "{935DF573-A6B2-4306-A099-987B7A4D59A7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IDX_NEWS.NewsModule", "IDX_NEWS.NewsModule\IDX_NEWS.NewsModule.csproj", "{2A5F7299-EBF1-464C-AE9B-12BD0DC18A9E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{935DF573-A6B2-4306-A099-987B7A4D59A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{935DF573-A6B2-4306-A099-987B7A4D59A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{935DF573-A6B2-4306-A099-987B7A4D59A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A5F7299-EBF1-464C-AE9B-12BD0DC18A9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A5F7299-EBF1-464C-AE9B-12BD0DC18A9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A5F7299-EBF1-464C-AE9B-12BD0DC18A9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A5F7299-EBF1-464C-AE9B-12BD0DC18A9E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

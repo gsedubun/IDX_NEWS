@@ -6,7 +6,7 @@ using Newtonsoft.Json.Converters;
 
 namespace IDX_NEWS.Core.ViewModels
 {
-    public  class Item
+    public class Item
     {
         [JsonProperty("Id")]
         public long Id { get; set; }
@@ -17,8 +17,17 @@ namespace IDX_NEWS.Core.ViewModels
         [JsonProperty("PublishedDate")]
         public DateTimeOffset PublishedDate { get; set; }
 
+        private string _imageUrl;
+
         [JsonProperty("ImageUrl")]
-        public string ImageUrl { get; set; }
+        public string ImageUrl
+        {
+            get { return _imageUrl; }
+            set
+            {
+                _imageUrl = value;
+            }
+        }
 
         [JsonProperty("Locale")]
         public Locale Locale { get; set; }
@@ -107,7 +116,7 @@ namespace IDX_NEWS.Core.ViewModels
         {
             if (reader.TokenType == JsonToken.Null) return null;
             var value = serializer.Deserialize<string>(reader);
-            switch (value)
+            switch (value.ToLower())
             {
                 case "en-us":
                     return Locale.EnUs;

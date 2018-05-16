@@ -56,6 +56,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\EventCalendarServiceTests.cs" />
     <Compile Include="Services\NewsServiceTests.cs" />
+    <Compile Include="ViewModels\ViewAViewModelTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -64,6 +65,10 @@
     <ProjectReference Include="..\IDX_NEWS.Core\IDX_NEWS.Core.csproj">
       <Project>{BBF9C851-AC32-4093-A231-0C0B439C51B0}</Project>
       <Name>IDX_NEWS.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IDX_NEWS.NewsModule\IDX_NEWS.NewsModule.csproj">
+      <Project>{2A5F7299-EBF1-464C-AE9B-12BD0DC18A9E}</Project>
+      <Name>IDX_NEWS.NewsModule</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

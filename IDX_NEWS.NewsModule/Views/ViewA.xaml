@@ -1,0 +1,49 @@
+﻿<UserControl x:Class="IDX_NEWS.NewsModule.Views.ViewA"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:IDX_NEWS.NewsModule.Views"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300"
+             xmlns:prism="http://prismlibrary.com/"
+             prism:ViewModelLocator.AutoWireViewModel="True" 
+              xmlns:wpf="clr-namespace:TheArtOfDev.HtmlRenderer.WPF;assembly=HtmlRenderer.WPF">
+    <Grid >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"  MaxHeight="200" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+            <RowDefinition Height="2*"  ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!--<StackPanel   CanVerticallyScroll="True"  Orientation="Vertical" ScrollViewer.VerticalScrollBarVisibility="Auto">
+        </StackPanel>-->
+
+        <ListBox x:Name="lbNewsAnnouncement" Grid.Column="0" Grid.Row="0" ItemsSource="{Binding NewsAnnouncement.Items}" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate >
+                                <TextBlock >
+                            <Hyperlink Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBox}}, Path=DataContext.SelectArticle}" CommandParameter="{Binding Id}"   >
+                                <TextBlock Text="{Binding Title}" />
+                            </Hyperlink>
+                        </TextBlock>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+            </ListBox>
+        <ScrollViewer Grid.Column="0" Grid.Row="1" >
+            <StackPanel >
+                <TextBlock x:Name="txtJudul" Text="{Binding Announcement.Title}" FontSize="28"/>
+                <TextBlock x:Name="txtImageurl" Text="{Binding Announcement.ImageUrl}" Visibility="Hidden"/>
+                <TextBlock x:Name="txtPublishDate" Text="{Binding Announcement.PublishedDate}" />
+                <Image x:Name="artilceImg" Source="{Binding Announcement.ImageUrl}" MaxWidth="300" MaxHeight="350"/>
+                <wpf:HtmlLabel x:Name="htmlContent" Text="{Binding Announcement.Contents}"></wpf:HtmlLabel>
+            </StackPanel>
+
+        </ScrollViewer>
+        
+    </Grid>
+
+
+</UserControl>

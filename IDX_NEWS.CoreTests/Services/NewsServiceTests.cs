@@ -18,10 +18,21 @@ namespace IDX_NEWS.Core.Services.Tests
         {
             NewsService newsService = new NewsService("http://www.idx.co.id");
 
-            var data = newsService.NewsAnnouncements("umbraco/Surface/NewsAnnouncement/GetNewsSearch?pageSize=10");
+            var data = newsService.NewsAnnouncements();
 
             Assert.IsNotNull(data);
             Console.WriteLine(data.Items.Count());
+        }
+
+        [Test()]
+        public void AnnouncementDetailTest()
+        {
+            NewsService newsService = new NewsService("http://www.idx.co.id");
+
+            var data = newsService.Details(1301);
+
+            Assert.IsNotNull(data);
+            Console.WriteLine(data);
         }
     }
 }
