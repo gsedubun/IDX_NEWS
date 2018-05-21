@@ -2,17 +2,7 @@
 
 namespace IDX_NEWS.Core.ViewModels
 {
-    public class Link
-    {
-        [JsonProperty("Rel")]
-        public string Rel { get; set; }
-
-        [JsonProperty("Href")]
-        public string Href { get; set; }
-
-        [JsonProperty("Method")]
-        public string Method { get; set; }
-    }
+    
 
     //public enum Method { Get };
 

@@ -18,8 +18,6 @@
             <RowDefinition Height="2*"  ScrollViewer.VerticalScrollBarVisibility="Auto"/>
         </Grid.RowDefinitions>
 
-        <!--<StackPanel   CanVerticallyScroll="True"  Orientation="Vertical" ScrollViewer.VerticalScrollBarVisibility="Auto">
-        </StackPanel>-->
 
         <ListBox x:Name="lbNewsAnnouncement" Grid.Column="0" Grid.Row="0" ItemsSource="{Binding NewsAnnouncement.Items}" ScrollViewer.VerticalScrollBarVisibility="Auto">
                         <ListBox.ItemTemplate>

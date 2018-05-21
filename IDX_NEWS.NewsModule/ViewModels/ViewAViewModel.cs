@@ -16,14 +16,6 @@ namespace IDX_NEWS.NewsModule.ViewModels
     {
         private NewsService NewsService;
 
-
-        private string _message;
-        public string Message
-        {
-            get { return _message; }
-            set { SetProperty(ref _message, value); }
-        }
-
         private NewsAnnouncement newsAnnouncement;
         public NewsAnnouncement NewsAnnouncement
         {
@@ -46,7 +38,6 @@ namespace IDX_NEWS.NewsModule.ViewModels
         public DelegateCommand<long?> SelectArticle { get; set; }
         public ViewAViewModel()
         {
-            //Message = "View A from your Prism Module";
             this.NewsService = new NewsService("http://www.idx.co.id");
             this.NewsAnnouncement = NewsService.NewsAnnouncements(Locale.IdId, 20);
 
@@ -65,10 +56,6 @@ namespace IDX_NEWS.NewsModule.ViewModels
             {
                 Announcement = NewsService.Details(itemid.Value);//
                 Item singlnews = NewsAnnouncement.Items.SingleOrDefault(d => d.Id == itemid);
-                //if (singlnews != null)
-                //{
-                //    Announcement.ImageUrl = string.Format("http://idx.co.id{0}", singlnews.ImageUrl);
-                //}
             }
             if (Announcement == null)
             {

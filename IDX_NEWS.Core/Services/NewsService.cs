@@ -33,7 +33,7 @@ namespace IDX_NEWS.Core.Services
 
             return data;
         }
-        public NewsAnnouncement NewsAnnouncements( Locale locale, int pagesize)
+        public NewsAnnouncement NewsAnnouncements(Locale locale, int pagesize)
         {
             string _locale = "id-id";
             switch (locale)

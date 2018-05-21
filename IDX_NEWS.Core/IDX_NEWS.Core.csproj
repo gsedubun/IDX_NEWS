@@ -52,8 +52,6 @@
     <Compile Include="Services\NewsService.cs" />
     <Compile Include="ViewModels\AnnouncementDetail.cs" />
     <Compile Include="ViewModels\EventCalendar.cs" />
-    <Compile Include="ViewModels\Item.cs" />
-    <Compile Include="ViewModels\Link.cs" />
     <Compile Include="ViewModels\NewsAnnouncement.cs" />
     <Compile Include="ViewModels\RootObject.cs" />
   </ItemGroup>
