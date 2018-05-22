@@ -9,7 +9,7 @@ namespace IDX_NEWS.Core.ViewModels
     /// http://www.idx.co.id/umbraco/Surface/NewsAnnouncement/GetNewsSearch?pageSize=10
     /// </summary>
 
-    public class NewsAnnouncement
+    public partial class NewsAnnouncement
     {
         public NewsAnnouncement()
         {
@@ -97,10 +97,10 @@ namespace IDX_NEWS.Core.ViewModels
 
     public enum Locale { EnUs, IdId };
 
-    //public class NewsAnnouncement
-    //{
-    //    public static NewsAnnouncement FromJson(string json) => JsonConvert.DeserializeObject<NewsAnnouncement>(json, IDX_NEWS.Core.ViewModels.Converter.Settings);
-    //}
+    public partial class NewsAnnouncement
+    {
+        public static NewsAnnouncement FromJson(string json) => JsonConvert.DeserializeObject<NewsAnnouncement>(json, NewsAnnouncementConverter.Settings);
+    }
 
     public static class NewsAnnouncementSerialize
     {

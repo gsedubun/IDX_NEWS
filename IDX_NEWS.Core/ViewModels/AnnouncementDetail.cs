@@ -10,9 +10,6 @@ namespace IDX_NEWS.Core.ViewModels
     //
     //    var announcementDetail = AnnouncementDetail.FromJson(jsonString);
 
-
-
-
     public partial class AnnouncementDetail
     {
         [JsonProperty("Id")]

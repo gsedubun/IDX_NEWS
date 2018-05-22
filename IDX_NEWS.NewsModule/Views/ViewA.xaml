@@ -15,32 +15,33 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="2*"  MaxHeight="200" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
-            <RowDefinition Height="2*"  ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+            <RowDefinition Height="2*"  ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto"/>
         </Grid.RowDefinitions>
 
 
-        <ListBox x:Name="lbNewsAnnouncement" Grid.Column="0" Grid.Row="0" ItemsSource="{Binding NewsAnnouncement.Items}" ScrollViewer.VerticalScrollBarVisibility="Auto">
-                        <ListBox.ItemTemplate>
-                            <DataTemplate >
-                                <TextBlock >
-                            <Hyperlink Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBox}}, Path=DataContext.SelectArticle}" CommandParameter="{Binding Id}"   >
-                                <TextBlock Text="{Binding Title}" />
-                            </Hyperlink>
-                        </TextBlock>
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
-            </ListBox>
-        <ScrollViewer Grid.Column="0" Grid.Row="1" >
-            <StackPanel >
+        <ListBox x:Name="lbNewsAnnouncement" Grid.Column="0" Grid.Row="0" ItemsSource="{Binding NewsAnnouncement.Items}" ScrollViewer.VerticalScrollBarVisibility="Auto" >
+            <ListBox.ItemTemplate>
+                <DataTemplate >
+                    <TextBlock Text="{Binding Title}">
+                        <TextBlock.InputBindings>
+                            <MouseBinding Gesture="LeftClick" Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBox}}, Path=DataContext.SelectArticle}" CommandParameter="{Binding Id}" />
+                        </TextBlock.InputBindings>
+                    </TextBlock>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <ScrollViewer Grid.Column="0" Grid.Row="1" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True">
+        <StackPanel HorizontalAlignment="Left" Margin="10"  >
                 <TextBlock x:Name="txtJudul" Text="{Binding Announcement.Title}" FontSize="28"/>
                 <TextBlock x:Name="txtImageurl" Text="{Binding Announcement.ImageUrl}" Visibility="Hidden"/>
                 <TextBlock x:Name="txtPublishDate" Text="{Binding Announcement.PublishedDate}" />
                 <Image x:Name="artilceImg" Source="{Binding Announcement.ImageUrl}" MaxWidth="300" MaxHeight="350"/>
-                <wpf:HtmlLabel x:Name="htmlContent" Text="{Binding Announcement.Contents}"></wpf:HtmlLabel>
+               
+                <wpf:HtmlLabel x:Name="htmlContent" Text="{Binding Announcement.Contents}" />
+          
             </StackPanel>
 
         </ScrollViewer>
-        
     </Grid>
 
 

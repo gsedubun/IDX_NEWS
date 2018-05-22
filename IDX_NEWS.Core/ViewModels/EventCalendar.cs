@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using System;
+using System.Globalization;
 namespace IDX_NEWS.Core.ViewModels
 {
     // To parse this JSON data, add NuGet 'Newtonsoft.Json' then do:
@@ -11,15 +9,6 @@ namespace IDX_NEWS.Core.ViewModels
     //    using IDX_NEWS.Core.ViewModels;
     //
     //    var eventCalendar = EventCalendar.FromJson(jsonString);
-
-
-    using System;
-    using System.Collections.Generic;
-
-    using System.Globalization;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Converters;
-
     public partial class EventCalendar
     {
         [JsonProperty("request")]
