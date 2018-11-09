@@ -33,7 +33,7 @@ namespace IDX_NEWS.Core.Services
 
             return data;
         }
-        public NewsAnnouncement NewsAnnouncements(Locale locale, int pagesize)
+        public NewsAnnouncement NewsAnnouncements(Locale locale, int pagesize, int pageNumber=1)
         {
             string _locale = "id-id";
             switch (locale)
@@ -42,7 +42,7 @@ namespace IDX_NEWS.Core.Services
                     _locale = "en-us";
                     break;
             }
-            var request = new RestRequest(resourceUrl+"?locale="+_locale+"&pageSize="+pagesize, RestSharp.Method.GET);
+            var request = new RestRequest(resourceUrl+"?locale="+_locale+"pageNumber="+pageNumber+"&pageSize="+pagesize, RestSharp.Method.GET);
 
             IRestResponse response = Client.Execute(request);
             if (response.IsSuccessful)

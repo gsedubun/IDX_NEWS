@@ -39,7 +39,7 @@ namespace IDX_NEWS.NewsModule.ViewModels
         public ViewAViewModel()
         {
             this.NewsService = new NewsService("http://www.idx.co.id");
-            this.NewsAnnouncement = NewsService.NewsAnnouncements(Locale.IdId, 20);
+            this.NewsAnnouncement = NewsService.NewsAnnouncements(Locale.IdId, 40);
 
             SelectArticle = new DelegateCommand<long?>(Select, CanSelect);
         }

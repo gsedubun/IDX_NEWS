@@ -12,9 +12,10 @@
     <Grid >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="2*"  MaxHeight="200" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+            <!--<RowDefinition Height="1*"  MaxHeight="200" ScrollViewer.VerticalScrollBarVisibility="Auto"/>-->
             <RowDefinition Height="2*"  ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto"/>
         </Grid.RowDefinitions>
 
@@ -30,7 +31,7 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <ScrollViewer Grid.Column="0" Grid.Row="1" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True">
+        <ScrollViewer Grid.Column="1" Grid.Row="0" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True">
         <StackPanel HorizontalAlignment="Left" Margin="10"  >
                 <TextBlock x:Name="txtJudul" Text="{Binding Announcement.Title}" FontSize="28"/>
                 <TextBlock x:Name="txtImageurl" Text="{Binding Announcement.ImageUrl}" Visibility="Hidden"/>
