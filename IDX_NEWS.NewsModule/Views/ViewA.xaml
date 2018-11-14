@@ -15,12 +15,13 @@
             <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <!--<RowDefinition Height="1*"  MaxHeight="200" ScrollViewer.VerticalScrollBarVisibility="Auto"/>-->
+            <!--<RowDefinition Height="1*"   MaxHeight="200" ScrollViewer.VerticalScrollBarVisibility="Auto"/>-->
             <RowDefinition Height="2*"  ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto"/>
         </Grid.RowDefinitions>
 
-
-        <ListBox x:Name="lbNewsAnnouncement" Grid.Column="0" Grid.Row="0" ItemsSource="{Binding NewsAnnouncement.Items}" ScrollViewer.VerticalScrollBarVisibility="Auto" >
+        <StackPanel Grid.Column="0" Grid.Row="0"  Orientation="Vertical" >
+        <ListBox x:Name="lbNewsAnnouncement" 
+                 ItemsSource="{Binding NewsAnnouncement.Items}" ScrollViewer.VerticalScrollBarVisibility="Auto" >
             <ListBox.ItemTemplate>
                 <DataTemplate >
                     <TextBlock Text="{Binding Title}">
@@ -31,6 +32,18 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="btnPrev" Margin="2"  Command="{Binding Prev}">Prev</Button>
+                <Button x:Name="btnNext" Margin="2" Command="{Binding Next}">Next</Button>
+            </StackPanel>
+            <Label>Page</Label>
+            <Label x:Name="desc" Content="{Binding PageNumber}"></Label>
+            <Label>of</Label>
+
+            <Label x:Name="total" Content="{Binding NewsAnnouncement.PageCount}"></Label>
+            <Label>Pages</Label>
+            
+        </StackPanel>
         <ScrollViewer Grid.Column="1" Grid.Row="0" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True">
         <StackPanel HorizontalAlignment="Left" Margin="10"  >
                 <TextBlock x:Name="txtJudul" Text="{Binding Announcement.Title}" FontSize="28"/>
