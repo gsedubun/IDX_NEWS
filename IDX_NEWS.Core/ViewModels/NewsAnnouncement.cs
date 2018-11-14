@@ -1,7 +1,9 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System;
+using System.ComponentModel;
 using System.Globalization;
+using System.Runtime.CompilerServices;
 
 namespace IDX_NEWS.Core.ViewModels
 {
@@ -9,15 +11,23 @@ namespace IDX_NEWS.Core.ViewModels
     /// http://www.idx.co.id/umbraco/Surface/NewsAnnouncement/GetNewsSearch?pageSize=10
     /// </summary>
 
-    public partial class NewsAnnouncement
+    public partial class NewsAnnouncement 
     {
+        private Item[] _items;
+
         public NewsAnnouncement()
         {
         }
 
 
         [JsonProperty("Items")]
-        public Item[] Items { get; set; }
+        public Item[] Items
+        {
+            get => _items; set
+            {
+                _items = value;
+            }
+        }
 
         [JsonProperty("ItemCount")]
         public long ItemCount { get; set; }
@@ -33,6 +43,9 @@ namespace IDX_NEWS.Core.ViewModels
 
         [JsonProperty("PageCount")]
         public long PageCount { get; set; }
+
+        
+
     }
     public class Link
     {

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using IDX_NEWS.Core.ViewModels;
 
 namespace IDX_NEWS.Core.Services.Tests
 {
@@ -16,7 +17,7 @@ namespace IDX_NEWS.Core.Services.Tests
         [Test()]
         public void NewsAnnouncementsTest()
         {
-            NewsService newsService = new NewsService("http://www.idx.co.id");
+            NewsService newsService = new NewsService("http://www.idx.co.id", ViewModels.Locale.EnUs);
 
             var data = newsService.NewsAnnouncements();
 
@@ -27,7 +28,7 @@ namespace IDX_NEWS.Core.Services.Tests
         [Test()]
         public void AnnouncementDetailTest()
         {
-            NewsService newsService = new NewsService("http://www.idx.co.id");
+            NewsService newsService = new NewsService("http://www.idx.co.id", Locale.EnUs);
 
             var data = newsService.Details(1301);
 
