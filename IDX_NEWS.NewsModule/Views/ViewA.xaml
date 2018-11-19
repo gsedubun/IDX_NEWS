@@ -36,12 +36,13 @@
                 <Button x:Name="btnPrev" Margin="2"  Command="{Binding Prev}">Prev</Button>
                 <Button x:Name="btnNext" Margin="2" Command="{Binding Next}">Next</Button>
             </StackPanel>
-            <Label>Page</Label>
-            <Label x:Name="desc" Content="{Binding PageNumber}"></Label>
-            <Label>of</Label>
-
-            <Label x:Name="total" Content="{Binding NewsAnnouncement.PageCount}"></Label>
-            <Label>Pages</Label>
+            <StackPanel Orientation="Horizontal">
+                <Label>Page</Label>
+                <Label x:Name="desc" Content="{Binding PageNumber}"></Label>
+                <Label>of</Label>
+                <Label x:Name="total" Content="{Binding NewsAnnouncement.PageCount}"></Label>
+                <Label>Pages</Label>
+            </StackPanel>
             
         </StackPanel>
         <ScrollViewer Grid.Column="1" Grid.Row="0" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True">

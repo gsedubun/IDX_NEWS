@@ -35,7 +35,7 @@ namespace IDX_NEWS.NewsModule.ViewModels
             get { return _announcement; }
             set
             {
-                
+
                 SetProperty(ref _announcement, value);
             }
         }
@@ -44,47 +44,49 @@ namespace IDX_NEWS.NewsModule.ViewModels
         public DelegateCommand Prev { get; set; }
         public DelegateCommand Next { get; set; }
 
-        public long PageNumber { get => _pageNumber; set { SetProperty(ref _pageNumber, value);} }
+        public long PageNumber { get => _pageNumber; set { SetProperty(ref _pageNumber, value); } }
 
 
-        public  ViewAViewModel()
+        public ViewAViewModel()
         {
 
             SelectArticle = new DelegateCommand<long?>(Select, CanSelect);
             Next = new DelegateCommand(GoNext, CanGoNext);
             Prev = new DelegateCommand(GoPrev, CanGoPrev);
-            PageNumber=1;
+            PageNumber = 1;
+            InitData();
 
-            NewsService = new NewsService("http://www.idx.co.id", Locale.IdId );
-            InitData();  
         }
         private async void InitData()
         {
-             NewsAnnouncement = await NewsService.NewsAnnouncements(1);
+            NewsService = new NewsService("http://www.idx.co.id", Locale.IdId);
+
+            NewsAnnouncement =  NewsService.NewsAnnouncements(1);
         }
         private async void GoPrev()
         {
-            PageNumber = PageNumber-1;
-            this.NewsAnnouncement = await NewsService.NewsAnnouncements( PageNumber);
+            PageNumber = PageNumber - 1;
+            this.NewsAnnouncement =  NewsService.NewsAnnouncements(PageNumber);
         }
 
         private bool CanGoPrev()
         {
-            return PageNumber>1;
+            return PageNumber > 1;
         }
 
         private async void GoNext()
         {
-            PageNumber = PageNumber+1;
+            PageNumber = PageNumber + 1;
 
-            NewsAnnouncement = await NewsService.NewsAnnouncements( PageNumber);
-            
+            NewsAnnouncement =  NewsService.NewsAnnouncements(PageNumber);
+
         }
 
         private bool CanGoNext()
         {
-            
-            return PageNumber < newsAnnouncement.PageCount;
+            if (NewsAnnouncement != null)
+                return PageNumber < newsAnnouncement.PageCount;
+            return false;
         }
 
         private bool CanSelect(long? arg)
