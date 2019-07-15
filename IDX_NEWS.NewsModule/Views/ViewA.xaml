@@ -16,22 +16,26 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <!--<RowDefinition Height="1*"   MaxHeight="200" ScrollViewer.VerticalScrollBarVisibility="Auto"/>-->
-            <RowDefinition Height="2*"  ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto"/>
+            <RowDefinition Height="Auto"  
+                           ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto"/>
         </Grid.RowDefinitions>
 
-        <StackPanel Grid.Column="0" Grid.Row="0"  Orientation="Vertical" >
-        <ListBox x:Name="lbNewsAnnouncement" 
+        <DockPanel Grid.Column="0" Grid.Row="0"     >
+
+            <ListBox x:Name="lbNewsAnnouncement" DockPanel.Dock="Top"  MaxHeight="1024"
                  ItemsSource="{Binding NewsAnnouncement.Items}" ScrollViewer.VerticalScrollBarVisibility="Auto" >
-            <ListBox.ItemTemplate>
-                <DataTemplate >
-                    <TextBlock Text="{Binding Title}">
-                        <TextBlock.InputBindings>
-                            <MouseBinding Gesture="LeftClick" Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBox}}, Path=DataContext.SelectArticle}" CommandParameter="{Binding Id}" />
-                        </TextBlock.InputBindings>
-                    </TextBlock>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+                <ListBox.ItemTemplate>
+                    <DataTemplate >
+                        <TextBlock Text="{Binding Title}">
+                            <TextBlock.InputBindings>
+                                <MouseBinding Gesture="LeftClick" Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBox}}, Path=DataContext.SelectArticle}" CommandParameter="{Binding Id}" />
+                            </TextBlock.InputBindings>
+                        </TextBlock>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <StackPanel Orientation="Vertical" DockPanel.Dock="Bottom">
+                
             <StackPanel Orientation="Horizontal">
                 <Button x:Name="btnPrev" Margin="2"  Command="{Binding Prev}">Prev</Button>
                 <Button x:Name="btnNext" Margin="2" Command="{Binding Next}">Next</Button>
@@ -43,17 +47,18 @@
                 <Label x:Name="total" Content="{Binding NewsAnnouncement.PageCount}"></Label>
                 <Label>Pages</Label>
             </StackPanel>
-            
-        </StackPanel>
+            </StackPanel>
+
+        </DockPanel>
         <ScrollViewer Grid.Column="1" Grid.Row="0" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True">
-        <StackPanel HorizontalAlignment="Left" Margin="10"  >
+            <StackPanel HorizontalAlignment="Left" Margin="10"  >
                 <TextBlock x:Name="txtJudul" Text="{Binding Announcement.Title}" FontSize="28"/>
                 <TextBlock x:Name="txtImageurl" Text="{Binding Announcement.ImageUrl}" Visibility="Hidden"/>
                 <TextBlock x:Name="txtPublishDate" Text="{Binding Announcement.PublishedDate}" />
                 <Image x:Name="artilceImg" Source="{Binding Announcement.ImageUrl}" MaxWidth="300" MaxHeight="350"/>
-               
+
                 <wpf:HtmlLabel x:Name="htmlContent" Text="{Binding Announcement.Contents}" />
-          
+
             </StackPanel>
 
         </ScrollViewer>
